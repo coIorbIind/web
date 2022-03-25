@@ -1,0 +1,33 @@
+{% extends 'first_lab/base.html' %}
+{% load static %}
+
+{% block content %}
+{#    <div class="pages" id="about-us">#}
+{#        <h1 class="second-titles" id="about-us-title">About Us</h1>#}
+{#        <span id="about-us-text">Each house has its own thick notebook or notebook with recipes for various dishes. But have you thought#}
+{#            about creating your own cookbook?<br>Yes?<br>Then you have come to the right place.#}
+{#            Here you can create your own recipe book, share with friends, discuss, like and much more.#}
+{#        </span>#}
+{#        <h2 id="get-started">Better get started!</h2>#}
+{#    </div>#}
+    <main class="page">
+        <div class="page__about_us-block">
+            <div class="about_us-block__container _container">
+                <div class="about_us-block__body">
+
+                    <h1 class="about_us-block__title">About Us</h1>
+
+                    <div class="about_us-block__text">
+                        Each house has its own thick notebook or notebook with recipes for various dishes. But have you thought
+                        about creating your own cookbook?<br>Yes?<br>Then you have come to the right place.
+                        Here you can create your own recipe book, share with friends, discuss, like and much more.
+                    </div>
+
+                </div>
+            </div>
+            <div class="about_us-block__image _ibg">
+                <img src="{% static "first_lab/images/alternative-background.png" %}" alt="cover">
+            </div>
+        </div>
+    </main>
+{% endblock %}

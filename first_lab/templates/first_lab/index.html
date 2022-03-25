@@ -1,0 +1,33 @@
+{% extends 'first_lab/base.html' %}
+{% load static %}
+
+{% block content %}
+{#    <div class="pages" id="start-page">#}
+{#        <h1 id="title">YOUR RECIPE BOOK</h1>#}
+{#        <h2 id="tagline">The perfect way to organize all your favorite recipes in one place.#}
+{#            Create, share your culinary stories. </h2>#}
+{#        <button id="create"></button>#}
+{#    </div>#}
+    <main class="page">
+        <div class="page__main-block main-block">
+            <div class="main-block__container _container">
+                <div class="main-block__body">
+
+                    <h1 class="main-block__title">YOUR RECIPE BOOK</h1>
+
+                    <div class="main-block__text">
+                        The perfect way to organize all your favorite recipes in one place. Create, share your culinary stories.
+                    </div>
+
+                    <div class="main-block__button">
+                        <a href=""><img src="{% static "first_lab/images/create_button.png" %}" alt="cover"></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="main-block__image _ibg">
+                <img src="{% static "first_lab/images/background.png" %}" alt="cover">
+            </div>
+        </div>
+    </main>
+{% endblock %}
