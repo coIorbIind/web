@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
-from first_lab.forms import RegisterForm
+from first_lab.forms import RegisterForm, AuthorizationForm
 from bot_directory.start_bot import send_message_to_admin
 
 
@@ -44,5 +46,19 @@ class RegisterView(CreateView):
             return self.form_invalid(form)
 
 
+class AuthorizationView(LoginView):
+    form_class = AuthorizationForm
+    template_name = 'first_lab/authorization.html'
+    # success_url = reverse_lazy('index')
+
+    def get_success_url(self):
+        return reverse_lazy("index")
+
+
 def test(request):
     return render(request, "first_lab/recipe_book.html")
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('index')
