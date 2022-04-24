@@ -1,0 +1,155 @@
+body {
+    position: relative;
+    background-color: rgba(47, 50, 51, 1);
+    height: 2670px;
+}
+
+.second_background {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1508px;
+    height: 2578px;
+    top: 46px;
+    background-position: center;
+    background-size: cover;
+    background: url("../images/second_background.png") no-repeat;
+}
+
+.cinnabon {
+    position: relative;
+    border: 1px solid rgba(249, 244, 229, 1);
+    border-radius: 30px;
+    width: 647px;
+    height: 625px;
+    left: 110px;
+    top: 110px;
+    overflow: hidden;
+}
+
+.namecinnabon {
+    position: absolute;
+    width: 419px;
+    height: 96px;
+    left: 910px;
+    top: 250px;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 96px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #000000;
+}
+
+li, p {
+    color: #000000;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 36px;
+}
+
+.author_text {
+    position: absolute;
+    width: 427px;
+    height: 36px;
+    left: 826px;
+    top: 656px;
+}
+
+div {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 54px;
+    /* text-align: center; */
+    color: #000000;
+}
+
+.name_left {
+    position: absolute;
+    width: 345px;
+    height: 48px;
+    left: 200px;
+    top: 797px;
+
+}
+
+.name_right {
+    position: absolute;
+    width: 315px;
+    height: 55px;
+    left: 970px;
+    top: 797px;
+}
+
+.right_text {
+    position: absolute;
+    width: 640px;
+    height: 2024px;
+    left: 803px;
+    top: 898px;
+}
+
+.left_text {
+    position: absolute;
+    width: 657px;
+    height: 486px;
+    left: 95px;
+    top: 898px;
+}
+
+.line {
+    position: absolute;
+    width: 1257px;
+    height: 0.001px;
+    left: 95px;
+    top: 1500px;
+    border: 10px solid #2F3233;
+    border-radius: 30px;
+    transform: rotate(90deg);
+}
+
+.icons {
+    position: absolute;
+    width: 58px;
+    height: 58px;
+    left: 810px;
+    top: 580px;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.number_likes {
+    position: absolute;
+    width: 50px;
+    height: 36px;
+    left: 900px;
+    top: 600px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 36px;
+
+    color: #000000;
+}
+
+label {
+  width: 32px;
+ height: 26px;
+ display: block;
+ position: relative;
+
+ }
+ input {
+ visibility: hidden;
+ }

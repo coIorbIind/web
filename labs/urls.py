@@ -22,6 +22,7 @@ from labs import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('first_lab.urls')),
+    path('api/v1/', include('API.urls')),
 ]
 
 if settings.DEBUG:
