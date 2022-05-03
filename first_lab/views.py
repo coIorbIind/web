@@ -11,12 +11,14 @@ from bot_directory.start_bot import send_message_to_admin
 
 
 def index(request):
-    data = {'title': 'Recipe Book'}
+    lang = request.COOKIES.get("language", "EN")
+    data = {'title': 'Книга рецептов' if lang == "RU" else 'Recipe Book', 'lang': lang}
     return render(request, "first_lab/index.html", context=data)
 
 
 def about_us(request):
-    data = {'title': 'About Us'}
+    lang = request.COOKIES.get("language", "EN")
+    data = {'title': 'О нас' if lang == "RU" else 'About Us', 'lang': lang}
     return render(request, "first_lab/about_us.html", context=data)
 
 
@@ -27,7 +29,8 @@ class RecipesListView(ListView):
     # allow_empty = False
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        kwargs["title"] = "Recipes"
+        kwargs["lang"] = self.request.COOKIES.get("language", "EN")
+        kwargs["title"] = "Рецепты" if kwargs["lang"] == "RU" else "Recipes"
         context = super().get_context_data(**kwargs)
         return context
 
@@ -38,10 +41,12 @@ class RecipeDetailView(DetailView):
     context_object_name = "recipe"
     # allow_empty = False
 
-    def get_context_data(self, *args, object_list=None, **kwargs):
+    def get_context_data(self, *args, **kwargs):
         flag = is_liked(self.request.user, kwargs.get("object"))
         # print(flag)
         kwargs["flag"] = flag
+        kwargs["lang"] = self.request.COOKIES.get("language", "EN")
+        kwargs["title"] = self.object.title
         context = super().get_context_data(**kwargs)
         return context
 
@@ -52,7 +57,8 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('index')
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        kwargs["title"] = "Registration"
+        kwargs["lang"] = self.request.COOKIES.get("language", "EN")
+        kwargs["title"] = "Регистрация" if kwargs["lang"] == "RU" else "Registration"
         context = super().get_context_data(**kwargs)
         return context
 
@@ -79,7 +85,8 @@ class AuthorizationView(LoginView):
     template_name = 'first_lab/authorization.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        kwargs["title"] = "Authorization"
+        kwargs["lang"] = self.request.COOKIES.get("language", "EN")
+        kwargs["title"] = "Авторизация" if kwargs["lang"] == "RU" else "Authorization"
         context = super().get_context_data(**kwargs)
         return context
 

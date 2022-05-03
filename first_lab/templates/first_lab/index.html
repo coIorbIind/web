@@ -13,10 +13,20 @@
             <div class="main-block__container _container">
                 <div class="main-block__body">
 
-                    <h1 class="main-block__title">YOUR RECIPE BOOK</h1>
+                    <h1 class="main-block__title">
+                        {% if lang == "RU" %}
+                        ВАША КНИГА РЕЦЕПТОВ
+                        {% else %}
+                        YOUR RECIPE BOOK
+                        {% endif %}
+                    </h1>
 
                     <div class="main-block__text">
+                        {% if lang == "RU" %}
+                        Идеальный способ организовать все ваши любимые рецепты в одном месте. Создавайте, делитесь своими кулинарными историями.
+                        {% else %}
                         The perfect way to organize all your favorite recipes in one place. Create, share your culinary stories.
+                        {% endif %}
                     </div>
 
                     <div class="main-block__button">

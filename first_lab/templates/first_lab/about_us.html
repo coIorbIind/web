@@ -15,12 +15,20 @@
             <div class="about_us-block__container _container">
                 <div class="about_us-block__body">
 
-                    <h1 class="about_us-block__title">About Us</h1>
+                    <h1 class="about_us-block__title">
+                        {{ title}}
+                    </h1>
 
                     <div class="about_us-block__text">
+                        {% if lang == "RU" %}
+                        В каждом доме есть своя толстая тетрадь или блокнот с рецептами различных блюд. Но вы думали
+                        о создании собственной кулинарной книги?<br>Да?<br>Тогда вы обратились по адресу.
+                        Здесь вы можете создать свою книгу рецептов, поделиться с друзьями, обсудить, поставить лайк и многое другое.
+                        {% else %}
                         Each house has its own thick notebook or notebook with recipes for various dishes. But have you thought
                         about creating your own cookbook?<br>Yes?<br>Then you have come to the right place.
                         Here you can create your own recipe book, share with friends, discuss, like and much more.
+                        {% endif %}
                     </div>
 
                 </div>

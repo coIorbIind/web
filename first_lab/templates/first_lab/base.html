@@ -22,19 +22,47 @@
                             <ul class="menu__list">
 
                                 <li class="menu__item">
-                                    <a href="{% url "about-us" %}" class="menu__link">About Us</a>
+                                    <a href="{% url "about-us" %}" class="menu__link">
+                                        {% if lang == "RU" %}
+                                        О нас
+                                        {% else %}
+                                        About Us
+                                        {% endif %}
+                                    </a>
                                 </li>
 
                                 <li class="menu__item">
-                                    <a href="{% url "register" %}" class="menu__link">Register</a>
+                                    <a href="{% url "register" %}" class="menu__link">
+                                        {% if lang == "RU" %}
+                                        Регистрация
+                                        {% else %}
+                                        Registration
+                                        {% endif %}
+                                    </a>
                                 </li>
 
                                 <li class="menu__item">
                                     {%  if request.user.is_authenticated %}
-                                        <a href="{% url "logout" %}" class="menu__link">Log Out</a>
+                                        <a href="{% url "logout" %}" class="menu__link">
+                                            {% if lang == "RU" %}
+                                            Выйти
+                                            {% else %}
+                                            Log Out
+                                            {% endif %}
+                                        </a>
                                     {%  else %}
-                                        <a href="{% url "authorization" %}" class="menu__link">Log In</a>
+                                        <a href="{% url "authorization" %}" class="menu__link">
+                                            {% if lang == "RU" %}
+                                            Авторизоваться
+                                            {% else %}
+                                            Log In
+                                            {% endif %}
+                                        </a>
                                     {%  endif %}
+                                </li>
+
+                                <li class="menu__item">
+                                    <button id="lang">{{ lang }}</button>
                                 </li>
                             </ul>
                         </nav>
@@ -55,4 +83,5 @@
 
         </div>
     </body>
+<script src="{% static "first_lab/js/storage.js" %}"></script>
 </html>

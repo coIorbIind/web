@@ -117,6 +117,16 @@ html, body {
     line-height: 140%;
 }
 
+#lang {
+    outline: none; /* Для синий ободки */
+    border: 0;
+    background: transparent;
+    font-weight: 700;
+    font-size: 100%;
+    color: inherit;
+    line-height: 140%;
+}
+
 /*--------------------------------------------главная страница--------------------------------------------*/
 
 .main-block {
