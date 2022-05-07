@@ -18,7 +18,7 @@ async function onChange () {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                "X-CSRFToken": document.cookie.split("=")[1]
+                "X-CSRFToken": document.cookie.split("=")[2]
             },
         })
         if (response.ok){
@@ -32,7 +32,7 @@ async function onChange () {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                "X-CSRFToken": document.cookie.split("=")[1]
+                "X-CSRFToken": document.cookie.split("=")[2]
             },
         });
         if (response.ok){

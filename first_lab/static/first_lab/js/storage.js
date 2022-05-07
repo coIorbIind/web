@@ -1,9 +1,8 @@
-// localStorage.language = "RU";
+// console.log(navigator.language.split("-")[1])
 
 const button = document.getElementById("lang");
 let menu_items = document.getElementsByClassName("menu__item")
 
-// console.log(temp_menu)
 
 function getCookie(name) {
   let matches = document.cookie.match(new RegExp(
@@ -12,7 +11,6 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-// button.innerText = getCookie("language");
 console.log(document.cookie);
 
 const menu = {
@@ -22,8 +20,6 @@ const menu = {
     logout: "Выйти-Log Out"
 }
 
-// const ru_menu = ["О нас", "Регистрация", "Авторизоваться", "Выйти"]
-// const en_menu = ["About Us", "Registration", "Authorize", "Log Out"]
 
 function onClick() {
     let text = button.textContent;
@@ -44,35 +40,4 @@ function onClick() {
     console.log(document.cookie);
 }
 
-// function changeMenu(language) {
-//     if (language === "RU"){
-//         if (menu_items[2].innerText === "Log Out"){
-//                 menu_items[2].innerText = ru_menu[ru_menu.length - 1]
-//             }
-//             else {
-//                 menu_items[2].innerText = ru_menu[ru_menu.length - 2]
-//             }
-//     }
-//     else{
-//         if (menu_items[2].innerText === "Выйти"){
-//                 menu_items[2].innerText = en_menu[en_menu.length - 1]
-//             }
-//             else {
-//                 menu_items[2].innerText = en_menu[en_menu.length - 2]
-//             }
-//     }
-//     // for (let menuItemKey = 0; menuItemKey < ru_menu.length - 2; menuItemKey++) {
-//     //
-//     // }
-//
-//     for (let menuItemKey = 0; menuItemKey < ru_menu.length - 2; menuItemKey++) {
-//         if (language === "RU"){
-//             menu_items[menuItemKey].innerText = ru_menu[menuItemKey]
-//         }
-//         else{
-//             menu_items[menuItemKey].innerText = en_menu[menuItemKey]
-//         }
-//     }
-// }
-// location.reload();
 button.addEventListener('click', onClick);
