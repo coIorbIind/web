@@ -2,6 +2,13 @@ const checkBox = document.getElementById('myCheckBox');
 const p = document.getElementById("p1");
 const img = document.getElementById("like_icon");
 
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 async function onChange () {
     let array = window.location.href.split("/");
     let pk = array[array.length - 1];
@@ -18,7 +25,7 @@ async function onChange () {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                "X-CSRFToken": document.cookie.split("=")[2]
+                "X-CSRFToken": getCookie("csrftoken")
             },
         })
         if (response.ok){
@@ -32,7 +39,7 @@ async function onChange () {
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
-                "X-CSRFToken": document.cookie.split("=")[2]
+                "X-CSRFToken": getCookie("csrftoken")
             },
         });
         if (response.ok){
