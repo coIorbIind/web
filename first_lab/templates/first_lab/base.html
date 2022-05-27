@@ -1,91 +1,101 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html id="html" lang="{{ lang|lower }}">
 <head>
     <title>{{ title }}</title>
-{#    <meta http-equiv="Refresh" content="1">#}
+    {#    <meta http-equiv="Refresh" content="1">#}
     <link rel="stylesheet" href="{% static 'first_lab/css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'first_lab/fontawesome-free-6.0.0-web/fontawesome-free-6.0.0-web/css/all.css' %}">
-{#    <link type="text/css" href="{% static 'first_lab/css/recipes_styles.css' %}" rel="stylesheet" />#}
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="shortcut icon" href="{% static 'first_lab/images/icon.png' %}" type="image/x-icon"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          href="{% static 'first_lab/fontawesome-free-6.0.0-web/fontawesome-free-6.0.0-web/css/all.css' %}">
+    {#    <link type="text/css" href="{% static 'first_lab/css/recipes_styles.css' %}" rel="stylesheet" />#}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="{% static 'first_lab/images/icon.png' %}" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-{#    <script>#}
-{#        let language = navigator.language.split("-")[1]#}
-{#        document.cookie = "language=" + language + "; path=/;";#}
-{#    </script>#}
-    <body>
-        <div class="wrapper">
+<script>
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    if (getCookie("language") === undefined) {
+        let language = navigator.language.split("-")[1]
+        document.cookie = "language=" + language + "; path=/;";
+        location.reload();
+    }
+</script>
+<body>
+<div class="wrapper">
 
-            {% block mainmenu %}
-                <header class="header">
-                    <div class="header__container _container">
-                        <a href="{% url "index" %}" class="header__logo"></a>
-                        <nav class="header__menu menu">
-                            <ul class="menu__list">
+    {% block mainmenu %}
+        <header class="header">
+            <div class="header__container _container">
+                <a href="{% url "index" %}" class="header__logo"></a>
+                <nav class="header__menu menu">
+                    <ul class="menu__list">
 
-                                <li class="menu__item">
-                                    <a href="{% url "about-us" %}" class="menu__link">
-                                        {% if lang == "RU" %}
-                                        О нас
-                                        {% else %}
-                                        About Us
-                                        {% endif %}
-                                    </a>
-                                </li>
+                        <li class="menu__item">
+                            <a href="{% url "about-us" %}" class="menu__link">
+                                {% if lang == "RU" %}
+                                    О нас
+                                {% else %}
+                                    About Us
+                                {% endif %}
+                            </a>
+                        </li>
 
-                                <li class="menu__item">
-                                    <a href="{% url "register" %}" class="menu__link">
-                                        {% if lang == "RU" %}
-                                        Регистрация
-                                        {% else %}
-                                        Registration
-                                        {% endif %}
-                                    </a>
-                                </li>
+                        <li class="menu__item">
+                            <a href="{% url "register" %}" class="menu__link">
+                                {% if lang == "RU" %}
+                                    Регистрация
+                                {% else %}
+                                    Registration
+                                {% endif %}
+                            </a>
+                        </li>
 
-                                <li class="menu__item">
-                                    {%  if request.user.is_authenticated %}
-                                        <a href="{% url "logout" %}" class="menu__link">
-                                            {% if lang == "RU" %}
-                                            Выйти
-                                            {% else %}
-                                            Log Out
-                                            {% endif %}
-                                        </a>
-                                    {%  else %}
-                                        <a href="{% url "authorization" %}" class="menu__link">
-                                            {% if lang == "RU" %}
-                                            Авторизоваться
-                                            {% else %}
-                                            Log In
-                                            {% endif %}
-                                        </a>
-                                    {%  endif %}
-                                </li>
+                        <li class="menu__item">
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url "logout" %}" class="menu__link">
+                                    {% if lang == "RU" %}
+                                        Выйти
+                                    {% else %}
+                                        Log Out
+                                    {% endif %}
+                                </a>
+                            {% else %}
+                                <a href="{% url "authorization" %}" class="menu__link">
+                                    {% if lang == "RU" %}
+                                        Авторизоваться
+                                    {% else %}
+                                        Log In
+                                    {% endif %}
+                                </a>
+                            {% endif %}
+                        </li>
 
-                                <li class="menu__item">
-                                    <button id="lang">{{ lang }}</button>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
-{#                    <div class="header">#}
-{#                        <div id="menu">#}
-{#                            <a href="{% url "index" %}"><span id="icon"></span></a>#}
-{#                            <span id="about-us"><a href="{% url "about-us" %}" class="hrefs">About Us</a></span>#}
-{#                            <span id="log-in"><a href="{% url "register" %}" class="hrefs">Register</a></span>#}
-{#                        </div>#}
-{#                    </div>#}
-            {% endblock mainmenu %}
+                        <li class="menu__item">
+                            <button id="lang">{{ lang }}</button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        {#                    <div class="header">#}
+        {#                        <div id="menu">#}
+        {#                            <a href="{% url "index" %}"><span id="icon"></span></a>#}
+        {#                            <span id="about-us"><a href="{% url "about-us" %}" class="hrefs">About Us</a></span>#}
+        {#                            <span id="log-in"><a href="{% url "register" %}" class="hrefs">Register</a></span>#}
+        {#                        </div>#}
+        {#                    </div>#}
+    {% endblock mainmenu %}
 
 
-            {% block content %}
-            {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-        </div>
-    </body>
+</div>
+</body>
 <script src="{% static "first_lab/js/storage.js" %}"></script>
 </html>

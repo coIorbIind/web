@@ -1,15 +1,7 @@
 // console.log(navigator.language.split("-")[1])
 
 const button = document.getElementById("lang");
-let menu_items = document.getElementsByClassName("menu__item")
-
-
-function getCookie(name) {
-  let matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
-}
+const html_ = document.querySelector('html');
 
 console.log(document.cookie);
 
@@ -28,13 +20,14 @@ function onClick() {
         button.innerText = "EN";
         localStorage.language = "EN";
         document.cookie = "language=EN; path=/;";
-
+        html_.setAttribute('lang', 'en');
     }
     if (text === "EN"){
         // changeMenu("RU")
         button.innerText = "RU";
         localStorage.language = "RU";
         document.cookie = "language=RU; path=/;";
+        html_.setAttribute('lang', 'ru');
     }
     location.reload();
     console.log(document.cookie);
