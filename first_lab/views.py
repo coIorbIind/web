@@ -24,7 +24,7 @@ def about_us(request):
 
 class RecipesListView(ListView):
     model = Recipe
-    template_name = 'first_lab/recipes.html'
+    template_name = 'first_lab/all_recipes.html'
     context_object_name = "recipes"
     # allow_empty = False
 
@@ -39,7 +39,6 @@ class RecipeDetailView(DetailView):
     model = Recipe
     template_name = 'first_lab/recipe_detail.html'
     context_object_name = "recipe"
-    # allow_empty = False
 
     def get_context_data(self, *args, **kwargs):
         flag = is_liked(self.request.user, kwargs.get("object"))
@@ -97,7 +96,3 @@ class AuthorizationView(LoginView):
 def logout_user(request):
     logout(request)
     return redirect('index')
-
-
-# def test(request):
-#     return render(request, "first_lab/recipe_detail.html")

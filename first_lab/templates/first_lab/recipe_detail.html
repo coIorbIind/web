@@ -29,15 +29,6 @@
     <div class="name_right">DIRECTIONS</div>
     <div class="left_text">
         <ul>
-{#            <li>1 cup milk</li>#}
-{#            <li>2 eggs room temperature</li>#}
-{#            <li>4 cups bread flour (plus extra for rolling)</li>#}
-{#            <li>½ teaspoon salt</li>#}
-{#            <li>½ cup white sugar</li>#}
-{#            <li> 1 package active dry yeast</li>#}
-{#            <li>1 cup brown sugar packed</li>#}
-{#            <li>3 tablespoons ground cinnamon</li>#}
-{#            <li>⅓ cup butter softened</li>#}
             {% for ingredient in recipe.ingredients|split:"\n" %}
                 <li>{{ ingredient }}</li>
             {% endfor %}
@@ -48,39 +39,10 @@
             {% for step in recipe.directions|split:"\n" %}
                 <li>{{ step }}</li>
             {% endfor %}
-{#            <li>Combine 2 cups of the flour and yeast in a large mixing bowl. In a saucepan, combine milk, butter,#}
-{#                sugar, and salt over medium heat until temperature reaches 120 to 130°F (butter will be almost melted).#}
-{#            </li>#}
-{#            <li>Add milk mixture to flour mixture along with eggs and mix with an electric mixer on low for 30 seconds.#}
-{#                Stir in as much of the flour as you can. (see note below for bread machine)#}
-{#            </li>#}
-{#            <li>Place dough a floured surface and knead in as much of the remaining flour as possible. Continue to knead#}
-{#                the dough until it is very smooth and elastic (this will take about 5-10 minutes).#}
-{#            </li>#}
-{#            <li>Cover dough with oil or cooking spray and plastic wrap. Let rest covered for about 15 minutes.#}
-{#                Meanwhile, in a small bowl, combine brown sugar and cinnamon and set aside.#}
-{#            </li>#}
-{#            <li>Roll the dough into a 18x21-inch rectangle. Spread ⅓ cup butter on the dough and top with the brown#}
-{#                sugar and cinnamon mixture.#}
-{#            </li>#}
-{#            <li>Starting with the long side, roll up dough so you have an 18" log. Cut into 12 even rolls.</li>#}
-{#            <li>Grease a 9x13 pan and place the rolls in the pan. Cover with plastic wrap and a tea towel or kitchen#}
-{#                towel and let rise until nearly doubled, about 45 minutes. Meanwhile, preheat oven to 400°F.#}
-{#            </li>#}
-{#            <li>Bake rolls on the center rack about 15 minutes or until lightly browned. While the rolls are baking,#}
-{#                combine cream cheese, ¼ cup butter, confectioners' sugar, vanilla extract and salt with a mixer until#}
-{#                fluffy.#}
-{#            </li>#}
-{#            <li>Allow rolls to cool for about 10-15 minutes and spread frosting on warms rolls.</li>#}
         </ol>
     </div>
 
         {% if flag %}
-{#            <div class="icons">#}
-{#                <img id="like_icon" src={% static "first_lab/icons/Group 26.png" %}  alt="Иконка">#}
-{#            </div>#}
-{#                <input type="checkbox" id="myCheckBox" checked>#}
-{#                <label for="myCheckBox" id="myLabel">{{ recipe.likes_count }}</label>#}
             <label class="icons"><input type="checkbox" checked id="myCheckBox">
                 <span>
                     <img id="like_icon" src={% static "first_lab/icons/Group 26.png" %} alt="Иконка">
@@ -92,11 +54,6 @@
                     <img id="like_icon" src={% static "first_lab/icons/Group 25.png" %} alt="Иконка">
                 </span>
             </label>
-{#            <div class="icons">#}
-{#                <img id="like_icon" src={% static "first_lab/icons/Group 25.png" %} alt="Иконка">#}
-{#            </div>#}
-{#                <input type="checkbox" id="myCheckBox">#}
-{#                <label for="myCheckBox" id="myLabel">{{ recipe.likes_count }}</label>#}
 
         {% endif %}
 

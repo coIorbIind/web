@@ -36,6 +36,16 @@
                     <ul class="menu__list">
 
                         <li class="menu__item">
+                            <a href="{% url "recipes" %}" class="menu__link">
+                                {% if lang == "RU" %}
+                                    Рецепты
+                                {% else %}
+                                    Recipes
+                                {% endif %}
+                            </a>
+                        </li>
+
+                        <li class="menu__item">
                             <a href="{% url "about-us" %}" class="menu__link">
                                 {% if lang == "RU" %}
                                     О нас

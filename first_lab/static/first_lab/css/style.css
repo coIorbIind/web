@@ -1,0 +1,143 @@
+body {
+	background-color: rgb(9, 18, 20);
+	height: 1770px;
+}
+
+
+.background_first {
+	position: relative;
+	background: url(../images/f.png) center/cover no-repeat ;
+	z-index: 1;
+	height: 515px;
+} 
+
+.img_logo{
+	position: relative;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 1;
+	width: 218.64px;
+	height: 170px;
+	top: 276px;
+
+}
+
+.block_2 {
+	background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../images/Group 15.png") center/cover no-repeat;
+	height: 1300px;
+}
+
+.main_container {
+	padding-top: 20px;
+	width: 1330px;
+	margin-left: auto;
+	margin-right: auto;
+	/* background-color: antiquewhite; */
+	
+}
+
+.div_class {
+	width: 350px;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 90px;
+  /* background-color: darkseagreen;  */
+	display: inline-block;
+	margin-right: 90px;
+}
+
+.div_class:last-child{
+	margin-right: 0px;	
+}
+
+
+.divv_img{
+	height: 350px;
+	width: 350px;
+	border-radius: 10px;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	margin-bottom: 10px;
+
+/* 	display: inline;
+	text-align: center;
+	top: 100px;
+	left: 100px;
+ 	display: inline-block;
+	text-align: center;
+	margin-right: 70px; 
+	  */
+
+}
+
+.img_1{
+	max-width: none;
+  min-width: auto;
+  min-height: auto;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* #divv:last-child{
+	margin-right: 0px;	
+}
+
+ */
+
+
+
+
+/* #divv {
+	color: aliceblue;
+	text-align: center;
+	position: absolute;
+	width: 220px;
+	height: 240px;
+	border-radius: 10px;
+	display: inline;
+	margin-right: 130px;
+} */
+
+/* #divv_text {
+	display: inline;
+	margin-right: 200px;
+} */
+
+
+/* #photo:last-child{
+	margin-right: 0px;
+} */
+
+.text {
+	text-decoration: none;
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 300;
+	font-size: 30px;
+	line-height: 140%;
+	/* identical to box height, or 35px */
+	text-align: center ;
+	letter-spacing: 0.05em;
+
+	color: #FFFFFF;
+	display: block;
+	margin-right: 200px;
+	/* line-height: 36px; */
+	/* text-align: center; */
+	margin-left: auto;
+  margin-right: auto;
+  width: 6em
+
+
+} 
+
+/* #text:last-child{
+	margin-right: 0px;
+}
+ */

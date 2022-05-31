@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html id="html" lang="{{ lang|lower }}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'first_lab/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'first_lab/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'first_lab/css/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+
+<script>
+    function getCookie(name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    if (getCookie("language") === undefined) {
+        let language = navigator.language.split("-")[1]
+        document.cookie = "language=" + language + "; path=/;";
+        location.reload();
+    }
+</script>
+
+<body>
+
+<section class="background_first">
+    <a href="{% url "index" %}" class="img_logo"><img src="{% static 'first_lab/icons/icon.png' %}" alt="logo"></a>
+</section>
+<section class="block_2">
+    <div class="main_container">
+        {% for recipe in recipes %}
+            <div class="div_class">
+            <div class="divv_img"><img class="img_1" src="{{recipe.photo.url}}" alt="photo"></div>
+            <a href="{{ recipe.get_absolute_url }}" class="text">{{ recipe.title }}</a>
+        </div>
+        {% endfor %}
+
+
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/cake.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cake</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/438a113440031cada7bb3cc58199f707.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cupcake</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1"  src="{% static 'first_lab/images/e7841ae76ac813c5c8177924136e6cbf.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Biscuit</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/9616724d37279e7b76936be285215fff.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Patties</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/синаб2.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cinnabons</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/4da050beb4de76856b34d16f80946de7.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cupcakes</p>#}
+        {#			</div>#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/cake.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cake</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/438a113440031cada7bb3cc58199f707.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cupcake</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1"  src="{% static 'first_lab/images/e7841ae76ac813c5c8177924136e6cbf.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Biscuit</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/9616724d37279e7b76936be285215fff.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Patties</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/синаб2.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cinnabons</p>#}
+        {#			</div>#}
+        {#	#}
+        {#			<div class="div_class">#}
+        {#				<div class="divv_img"><img class="img_1" src="{% static 'first_lab/images/4da050beb4de76856b34d16f80946de7.jpg' %}" alt="photo"></div>#}
+        {#				<p class="text">Cupcakes</p>#}
+        {#			</div>#}
+    </div>
+
+
+    <!-- 	<div class="photo_1" id="photo">
+        <div id="divv"> <img src="img/Rectangle 8.png" alt="photo"> </div>
+        <div id="divv"> <img src="img/Rectangle 9.png" alt="photo"> </div>
+        <div id="divv"> <img src="img/Rectangle 10.png" alt="photo"> </div>
+    </div>
+    -->
+    <!-- 	<div class="text_1" id="text">
+        <p id="divv2">Cake</p>
+        <p id="divv2">Cupcake</p>
+        <p id="divv2">Biscuit</p>
+    </div> -->
+
+    <!-- 	<div class="photo_2"  id="photo">
+        <div id="divv"><img src="img/Rectangle 11.png" alt="photo"></div>
+        <div id="divv"><img src="img/Rectangle 12.png" alt="photo"></div>
+        <div id="divv"><img src="img/Rectangle 13.png" alt="photo"></div>
+    </div> -->
+
+    <!-- 	<div class="text_2" id="text">
+        <p id="divv2">Patties</p>
+        <p id="divv2">Cinnabons</p>
+        <p id="divv2">Cupcakes</p>
+    </div> -->
+    <!-- 		<div class="photo_1">
+                <div id="divv_img"></div>
+                <div id="divv_img"><img class="img_1" src="img/438a113440031cada7bb3cc58199f707.jpg " alt="photo"></div>
+                <div id="divv_img"></div>
+            </div> -->
+
+    <!-- 		<div id="text">
+
+                <div></div>
+                <div></div>
+            </div> -->
+
+    <!-- 		<div class="photo_2">
+                <div id="divv_img"></div>
+                <div id="divv_img"></div>
+
+            </div> -->
+
+    <!-- 		<div id="text">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div> -->
+
+</section>
+</body>
+</html>
