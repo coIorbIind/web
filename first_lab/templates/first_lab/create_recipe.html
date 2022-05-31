@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="form" id="form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% for f in form %}
+        {% if f.errors %}
+            <div class="form-control error">
+        {% elif not form.is_bound %}
+            <div class="form-control">
+        {% else %}
+            <div class="form-control success">
+        {% endif %}
+    {{ f }}
+    <i class="fas fa-check-circle"></i>
+    <i class="fas fa-exclamation-circle"></i>
+    <small>{{ f.errors|first }}</small>
+    </div>
+    {% endfor %}
+
+    <div class="register-block__button">
+        <button type="submit"></button>
+    </div>
+</form>
+</body>
+</html>

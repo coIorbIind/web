@@ -1,10 +1,11 @@
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView
 
-from .forms import RegisterForm, AuthorizationForm
+from .forms import RegisterForm, AuthorizationForm, RecipeCreationForm
 from .models import Recipe
 from .utils import is_liked
 from bot_directory.start_bot import send_message_to_admin
@@ -96,3 +97,29 @@ class AuthorizationView(LoginView):
 def logout_user(request):
     logout(request)
     return redirect('index')
+
+
+class CreateRecipeView(CreateView):
+    form_class = RecipeCreationForm
+    template_name = 'first_lab/create_recipe.html'
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        kwargs["lang"] = self.request.COOKIES.get("language", "EN")
+        kwargs["title"] = "Создание рецепта" if kwargs["lang"] == "RU" else "Create Recipe"
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        self.object = None
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author = request.user.profile
+            new_post.save()
+
+            self.object = form.save()
+
+            return HttpResponseRedirect(reverse_lazy('recipe', args=(self.object.id, )))
+
+        return self.form_invalid(form)

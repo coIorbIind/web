@@ -4,18 +4,6 @@ body {
     height: 2670px;
 }
 
-.second_background {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1508px;
-    height: 2578px;
-    top: 46px;
-    background-position: center;
-    background-size: cover;
-    background: url("../images/second_background.png") no-repeat;
-}
-
 .cinnabon {
     position: relative;
     border: 1px solid rgba(249, 244, 229, 1);
@@ -144,12 +132,35 @@ div {
 }
 
 label {
-  width: 32px;
- height: 26px;
- display: block;
- position: relative;
+    width: 32px;
+    height: 26px;
+    display: block;
+    position: relative;
 
- }
- input {
- visibility: hidden;
- }
+}
+
+input {
+    visibility: hidden;
+}
+
+#img_1 {
+    max-width: none;
+    min-width: auto;
+    min-height: auto;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.second_background {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1508px;
+    height: 2578px;
+    top: 46px;
+    background: #F9F4E5;
+    border-radius: 30px;
+}

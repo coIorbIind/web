@@ -27,7 +27,7 @@ def save_user_profile(sender, instance, **kwargs):
 
 class Recipe(models.Model):
     title = models.CharField(verbose_name="Название", max_length=50)
-    photo = models.ImageField(verbose_name="Фото")
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name="Фото")
     ingredients = models.TextField(verbose_name="Ингридиенты")
     directions = models.TextField(verbose_name="Шаги")
     publication_date = models.DateTimeField(auto_now_add=True)

@@ -21,12 +21,12 @@
 <body>
 <main class="second_background">
     <div class="cinnabon">
-        <img src="{{ recipe.photo.url }}" alt="Здесь фото рецепта">
+        <img id="img_1" src="{{ recipe.photo.url }}" alt="Здесь фото рецепта">
     </div>
     <p class="namecinnabon">{{ recipe.title }}</p>
-    <p class="author_text">Author: {{ recipe.author }}</p>
-    <div class="name_left">INGREDIENTS</div>
-    <div class="name_right">DIRECTIONS</div>
+    <p class="author_text">{% if lang == "RU" %}Автор{% else %}Author{% endif %}: {{ recipe.author }}</p>
+    <div class="name_left">{% if lang == "RU" %}Ингридиенты{% else %}INGREDIENTS{% endif %}</div>
+    <div class="name_right">{% if lang == "RU" %}Приготовление{% else %}DIRECTIONS{% endif %}</div>
     <div class="left_text">
         <ul>
             {% for ingredient in recipe.ingredients|split:"\n" %}
