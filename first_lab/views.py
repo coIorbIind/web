@@ -62,22 +62,22 @@ class RegisterView(CreateView):
         context = super().get_context_data(**kwargs)
         return context
 
-    def post(self, request, *args, **kwargs):
-        """
-        Handle POST requests: instantiate a form instance with the passed
-        POST variables and then check if it's valid.
-        """
-        self.object = None
-        form = self.get_form()
-        if form.is_valid():
-            username = form.cleaned_data.get("username")
-            user_email = form.cleaned_data.get("email")
-            send_message_to_admin(f"Зарегистрирован новый пользователь!\n"
-                                  f"Username: {username}\n"
-                                  f"Электронная почта: {user_email}")
-            return self.form_valid(form)
-        else:
-            return self.form_invalid(form)
+    # def post(self, request, *args, **kwargs):
+    #     """
+    #     Handle POST requests: instantiate a form instance with the passed
+    #     POST variables and then check if it's valid.
+    #     """
+    #     self.object = None
+    #     form = self.get_form()
+    #     if form.is_valid():
+    #         username = form.cleaned_data.get("username")
+    #         user_email = form.cleaned_data.get("email")
+    #         send_message_to_admin(f"Зарегистрирован новый пользователь!\n"
+    #                               f"Username: {username}\n"
+    #                               f"Электронная почта: {user_email}")
+    #         return self.form_valid(form)
+    #     else:
+    #         return self.form_invalid(form)
 
 
 class AuthorizationView(LoginView):
