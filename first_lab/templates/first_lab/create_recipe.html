@@ -1,30 +1,35 @@
+{% load static %}
+{% load filters %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html id="html" lang="{{ lang|lower }}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Inter:wght@300;600;700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'first_lab/css/create_styles.css' %}">
+    <title>{{ title }}</title>
 </head>
 <body>
-<form class="form" id="form" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% for f in form %}
-        {% if f.errors %}
-            <div class="form-control error">
-        {% elif not form.is_bound %}
-            <div class="form-control">
-        {% else %}
-            <div class="form-control success">
-        {% endif %}
-    {{ f }}
-    <i class="fas fa-check-circle"></i>
-    <i class="fas fa-exclamation-circle"></i>
-    <small>{{ f.errors|first }}</small>
-    </div>
-    {% endfor %}
+<main class="second_background">
+    <p id="name_creating_a_recipe">{% if lang == "RU" %}СОЗДАНИЕ РЕЦЕПТА{% else %}CREATING A RECIPE{% endif %}</p>
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <p class="no_block">{% if lang == "RU" %}НАЗВАНИЕ РЕЦЕПТА{% else %}RECIPE NAME{% endif %}:</p>
+        <p class="no_block">{{ form|index:"title" }}</p>
+        <p></p>
+        <p class="no_block">{% if lang == "RU" %}ЗАГРУЗИТЕ ФОТО{% else %}UPLOAD YOUR PHOTO TO THE SERVER{% endif %}:</p>
+        <p class="no_block">{{ form|index:"photo" }}</p>
+        <p>{% if lang == "RU" %}ИНГРЕДИЕНТЫ{% else %}INGREDIENTS{% endif %}:</p>
+        <p class="textarea_settings">{{ form|index:"ingredients" }}</p>
+        <p>{% if lang == "RU" %}ПРИГОТОВЛЕНИЕ{% else %}DIRECTIONS{% endif %}:</p>
+        <p class="textarea_settings">{{ form|index:"directions" }}</p>
+        <div class="button_display_block">
+            <p class="button_display"><button class="button_settings"><h1>Create</h1></button></p>
+        </div>
+    </form>
 
-    <div class="register-block__button">
-        <button type="submit"></button>
-    </div>
-</form>
+</main>
 </body>
 </html>

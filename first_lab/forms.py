@@ -33,11 +33,12 @@ class AuthorizationForm(AuthenticationForm):
 
 
 class RecipeCreationForm(ModelForm):
-    # title = forms.CharField(widget=forms.TextInput())
-    # photo = forms.ImageField(widget=forms.FileInput())
-    # ingredients = forms.CharField(widget=forms.Textarea())
-    # directions = forms.CharField(widget=forms.Textarea())
 
     class Meta:
         model = Recipe
         fields = ("title", "photo", "ingredients", "directions")
+        widgets = {
+            'title': forms.TextInput(attrs={"class": "form_settings", "type": "text", "size": "30", "maxlength": "50"}),
+            "photo": forms.FileInput(
+                attrs={"class": "form_settings", "type": "file", "name": "photo", "accept": "image/*,image  /jpeg"}),
+        }

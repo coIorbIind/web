@@ -1,7 +1,7 @@
 {% load static %}
 {% load filters %}
 <!DOCTYPE html>
-<html lang="en">
+<html id="html" lang="{{ lang|lower }}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,9 +24,9 @@
         <img id="img_1" src="{{ recipe.photo.url }}" alt="Здесь фото рецепта">
     </div>
     <p class="namecinnabon">{{ recipe.title }}</p>
-    <p class="author_text">{% if lang == "RU" %}Автор{% else %}Author{% endif %}: {{ recipe.author }}</p>
-    <div class="name_left">{% if lang == "RU" %}Ингридиенты{% else %}INGREDIENTS{% endif %}</div>
-    <div class="name_right">{% if lang == "RU" %}Приготовление{% else %}DIRECTIONS{% endif %}</div>
+    <p class="author_text">{% if lang == "RU" %}АВТОР{% else %}Author{% endif %}: {{ recipe.author }}</p>
+    <div class="name_left">{% if lang == "RU" %}ИНГРЕДИЕНТЫ{% else %}INGREDIENTS{% endif %}</div>
+    <div class="name_right">{% if lang == "RU" %}ПРИГОТОВЛЕНИЕ{% else %}DIRECTIONS{% endif %}</div>
     <div class="left_text">
         <ul>
             {% for ingredient in recipe.ingredients|split:"\n" %}
